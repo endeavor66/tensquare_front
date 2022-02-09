@@ -19,7 +19,7 @@ node {
     }
     //=====以下为远程调用进行项目部署========
     sshPublisher(publishers: [sshPublisherDesc(configName: 'slave_server',
-      transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'pwd',
+      transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'cd dist',
       execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes:
       false, patternSeparator: '[, ]+', remoteDirectory: '/usr/share/nginx/html',
       remoteDirectorySDF: false, removePrefix: 'dist', sourceFiles: 'dist/**')],
