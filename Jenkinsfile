@@ -11,15 +11,13 @@ node {
     //使用NodeJS的npm进行打包
     nodejs('nodejs12'){
       sh '''
-      pwd
       npm install
       npm run build
-      cd /
       '''
     }
     //=====以下为远程调用进行项目部署========
     sshPublisher(publishers: [sshPublisherDesc(configName: 'slave_server',
-      transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'cd dist',
+      transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '',
       execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes:
       false, patternSeparator: '[, ]+', remoteDirectory: '/usr/share/nginx/html',
       remoteDirectorySDF: false, removePrefix: 'dist', sourceFiles: 'dist/**')],
