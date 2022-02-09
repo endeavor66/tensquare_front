@@ -2,7 +2,7 @@
 def git_auth = "endeavor"
 node {
   stage('拉取代码') {
-    checkout([$class: 'GitSCM', branches: [[name: '*/${branch}']],
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']],
     doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [],
     userRemoteConfigs: [[credentialsId: "${git_auth}", url:
     'git@github.com:endeavor66/tensquare_front.git']]])
