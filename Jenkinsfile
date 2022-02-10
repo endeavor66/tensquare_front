@@ -1,6 +1,6 @@
 //gitlab的凭证
-//def git_auth = "faaf8dd2-ff5c-4588-aca5-b0cd56df51de"
-def git_auth = "endeavor"
+def git_auth = "faaf8dd2-ff5c-4588-aca5-b0cd56df51de"
+//def git_auth = "endeavor"
 node {
   stage('拉取代码') {
     checkout([$class: 'GitSCM', branches: [[name: '*/master']],
