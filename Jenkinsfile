@@ -1,5 +1,5 @@
 //gitlab的凭证
-def git_auth = "endeavor"
+def git_auth = "faaf8dd2-ff5c-4588-aca5-b0cd56df51de"
 node {
   stage('拉取代码') {
     checkout([$class: 'GitSCM', branches: [[name: '*/master']],
@@ -16,7 +16,7 @@ node {
       '''
     }
     //=====以下为远程调用进行项目部署========
-    sshPublisher(publishers: [sshPublisherDesc(configName: 'slave_server',
+    sshPublisher(publishers: [sshPublisherDesc(configName: 'master_server',
       transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '',
       execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes:
       false, patternSeparator: '[, ]+', remoteDirectory: '/usr/share/nginx/html',
